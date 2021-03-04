@@ -1,0 +1,39 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'main/style.css' %}">
+<script> window.__appCDN="https://cdn.webcomponents.psu.edu/cdn/"; </script> <script src="https://cdn.webcomponents.psu.edu/cdn/build.js"></script> 
+<script src="{% static 'main/xapi-events.js'%}" type="text/javascript"></script>
+
+<p>Ideally, we would like to use this kind of style</p>
+<multiple-choice id="testMC" accent-color="grey" typeof="oer:Assessment" resource="#d4dd91ba-e904-47a1-90c4-c48480c80f07" prefix="oer:http://oerschema.org/ schema:http://schema.org/ dc:http://purl.org/dc/terms/ foaf:http://xmlns.com/foaf/0.1/ cc:http://creativecommons.org/ns# bib:http://bib.schema.org " check-label="Check answer" reset-label="Reset" correct-text="Great job!" incorrect-text="Better luck next time!" correct-icon="icons:thumb-up" incorrect-icon="icons:thumb-down" quiz-name="default" question="What is the best animal?" title="Question" schema-resource-id="#d4dd91ba-e904-47a1-90c4-c48480c80f07" answers="[{&quot;userGuess&quot;:false,&quot;label&quot;:&quot;Dolphin&quot;},{&quot;userGuess&quot;:false,&quot;correct&quot;:false,&quot;label&quot;:&quot;Gorilla&quot;},{&quot;userGuess&quot;:false,&quot;label&quot;:&quot;Fox&quot;,&quot;correct&quot;:true}]"></multiple-choice>
+
+<p>But, we are left with this</p>
+<h3>What is the best animal?</h3>
+<form action="/" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit">
+</form>
+
+
+<!--<form action="{% static 'main/xapi.py'%}" method="post">
+  <input type="radio" id="gorilla" name="mc" value="Gorilla">
+  <label for="gorilla">Gorilla</label><br>
+  <input type="radio" id="dolphin" name="mc" value="Dolphin">
+  <label for="dolphin">Dolphin</label><br>
+  <input type="radio" id="fox" name="mc" value="Fox">
+  <label for="fox">Fox</label>
+  <br>
+  <input type="submit" value="Submit">
+  {% csrf_token %}
+</form>-->
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+<!--<form action="" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit" class="button">
+ </form>-->
+<a href="{% url 'stats' %}" class="button" >Statistics</a>
+<br>
+<a href="{% url 'video' %}" class="button" >Videos</a>
+<a href="{% url 'scanner' %}" class="button">Scanner</a>

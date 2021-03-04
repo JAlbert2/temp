@@ -1,0 +1,12 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'main/style.css' %}">
+<h1>Analytics</h1>
+<a href="{% url 'index' %}" class="button" >Home</a>
+<p>{{data}}</p>
+<ul>
+    <li>Dolphin: {{dolphin}}</li>
+    <li>Gorilla: {{gorilla}}</li>
+    <li style="font-weight: bold;">Fox: {{fox}}</li>
+    <li>Multiple choices selected:{{multiple}} (Not included in other totals)</li>
+</ul>
+<img src="{% static 'main/plot3.png' %}" alt="Pie chart of data">

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<meta charset=utf-8>
+<html lang="en">
+{% load static %}
+<head>
+  <title>Barcode Reader</title>
+</head>
+
+<body>
+  <div id="container"></div>
+  <script type="text/javascript" src="{% static 'js/BarcodeReader.js' %}"></script>
+  <script type="text/javascript" src="{% static 'barcode-reader.jquery.js' %}"></script>
+  <script type="text/javascript">
+    $('#container').barcodeReader();
+  </script>
+</body>
+
+</html>
